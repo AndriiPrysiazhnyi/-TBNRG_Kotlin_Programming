@@ -1,11 +1,10 @@
 package challanges.chapter2
 
-const val HERO_NAME = "Madrigal"
-
 fun main() {
     println("The hero announces her presence to the world.")
 
-    println(HERO_NAME)
+    val heroName = "Madrigal"
+    println(heroName)
     var playerLevel = 4
     println(playerLevel)
 
