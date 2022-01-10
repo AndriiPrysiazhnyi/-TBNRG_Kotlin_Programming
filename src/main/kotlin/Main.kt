@@ -1,26 +1,27 @@
 const val HERO_NAME = "Madrigal"
+var playerLevel = 5
 
 fun main() {
     println("The hero announces her presence to the world.")
 
     println(HERO_NAME)
-    var playerLevel = 4
     println(playerLevel)
 
-    val hasBefriendedBarbarians = true
-    val hasAngeredBarbarians = false
-    val playerClass = "paladin"
-    val quest: String = obtainQuest(playerLevel, playerClass, hasBefriendedBarbarians, hasAngeredBarbarians)
-
-    println("The hero approaches the bounty board. It reads:")
-    println(quest)
+    readBountyBoard()
 
     println("Time passes...")
     println("The hero returns from her quest.")
 
     playerLevel += 1
     println(playerLevel)
+    readBountyBoard()
 }
+
+private fun readBountyBoard() {
+    println("The hero approaches the bounty board. It reads:")
+    println(obtainQuest(playerLevel, "paladin", true, false))
+}
+
 
 private fun obtainQuest(
     playerLevel: Int,
