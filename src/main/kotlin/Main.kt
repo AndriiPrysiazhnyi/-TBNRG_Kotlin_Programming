@@ -7,10 +7,15 @@ fun main() {
     var playerLevel = 4
     println(playerLevel)
 
+    val hasBefriendedBarbarians = true
     if(playerLevel == 1){
         println("Meet Mr. Bubbles in the land of soft things.")
     }else if(playerLevel <= 5){
-        println("Save the town from barbarian invasions.")
+        if(hasBefriendedBarbarians){
+            println("Convince the barbarians to call off their invasion.")
+        }else {
+            println("Save the town from barbarian invasions.")
+        }
     }else if(playerLevel == 6){
         println("Locate the enchanted sword.")
     }else if(playerLevel == 7){
