@@ -4,8 +4,8 @@ var playerLevel = 0
 fun main() {
     println("$HERO_NAME announces her presence to the world.")
     println("What level is $HERO_NAME")
-    val input = readLine()!!.toInt()
-    println("$HERO_NAME's level is $input")
+    playerLevel = readLine()!!.toInt()
+    println("$HERO_NAME's level is $playerLevel")
 
     readBountyBoard()
 
