@@ -51,5 +51,5 @@ private fun obtainQuest(
     6 -> "Locate the enchanted sword."
     7 -> "Recover the long-lost artifact of creation."
     8 -> "Defeat Nogartse, bringer of death and eater of worlds."
-    else -> "There are no quests right now."
+    else -> null
 }
