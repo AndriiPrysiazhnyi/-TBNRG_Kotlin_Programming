@@ -23,10 +23,11 @@ fun main() {
 }
 
 private fun readBountyBoard() {
+    val quest: String? = obtainQuest(playerLevel)
     println(
         """
         |$HERO_NAME approaches the bounty board. It reads:
-        |   "${obtainQuest(playerLevel).replace("Nogartse","xxxxxxxx")}"
+        |   "$quest"
         """.trimMargin()
     )
 }
@@ -37,7 +38,7 @@ private fun obtainQuest(
     playerClass: String = "paladin",
     hasBefriendedBarbarians: Boolean = true,
     hasAngeredBarbarians: Boolean = false
-): String = when (playerLevel) {
+): String? = when (playerLevel) {
     1 -> "Meet Mr. Bubbles in the land of soft things."
     in 2..5 -> {
         val canTalkToBarbarians = !hasAngeredBarbarians &&
