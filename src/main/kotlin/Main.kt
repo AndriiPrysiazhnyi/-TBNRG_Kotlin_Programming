@@ -24,10 +24,11 @@ fun main() {
 
 private fun readBountyBoard() {
     val quest: String? = obtainQuest(playerLevel)
+    val censoredQuest = quest.replace("Nogartse","xxxxxxxx")
     println(
         """
         |$HERO_NAME approaches the bounty board. It reads:
-        |   "$quest"
+        |   "$censoredQuest"
         """.trimMargin()
     )
 }
