@@ -7,7 +7,7 @@ fun narrate(
     message: String,
     modifier: (String) -> String = { narrationModifier(it) }
 ) {
-    println(message)
+    println(modifier(message))
 }
 
 fun changeNarratorMood() {
