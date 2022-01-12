@@ -19,20 +19,21 @@ fun main() {
 }
 
 private fun readBountyBoard() {
-    try {
+    val message: String = try {
         val quest: String? = obtainQuest(playerLevel)
 
-        val message: String = quest?.replace("Nogartse", "xxxxxxxx")
+        quest?.replace("Nogartse", "xxxxxxxx")
             ?.let { censoredQuest ->
                 """
         |$HERO_NAME approaches the bounty board. It reads:
         |   "$censoredQuest"
         """.trimMargin()
             } ?: "$HERO_NAME approaches the bounty board, but it is blank."
-        println(message)
+
     } catch (e: Exception) {
-        println("$HERO_NAME can't read what's on the bounty board.")
+        "$HERO_NAME can't read what's on the bounty board."
     }
+    println(message)
 }
 
 private fun obtainQuest(
