@@ -4,5 +4,5 @@ fun narrate(
     println({
         val numExclamationPoints = 3
         message.uppercase() + "!".repeat(numExclamationPoints)
-    })
+    }())
 }
