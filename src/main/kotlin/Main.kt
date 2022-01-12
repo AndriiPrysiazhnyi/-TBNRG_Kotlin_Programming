@@ -5,7 +5,7 @@ fun main() {
     println("$HERO_NAME announces her presence to the world.")
     println("What level is $HERO_NAME")
 
-    playerLevel = readLine()?.toIntOrNull() ?:0
+    playerLevel = readLine()?.toIntOrNull() ?: 0
     println("$HERO_NAME's level is $playerLevel")
 
     readBountyBoard()
@@ -19,16 +19,20 @@ fun main() {
 }
 
 private fun readBountyBoard() {
-    val quest: String? = obtainQuest(playerLevel)
+    try {
+        val quest: String? = obtainQuest(playerLevel)
 
-    val message: String = quest?.replace("Nogartse", "xxxxxxxx")
-        ?.let { censoredQuest ->
-            """
+        val message: String = quest?.replace("Nogartse", "xxxxxxxx")
+            ?.let { censoredQuest ->
+                """
         |$HERO_NAME approaches the bounty board. It reads:
         |   "$censoredQuest"
         """.trimMargin()
-        }?: "$HERO_NAME approaches the bounty board, but it is blank."
-    println(message)
+            } ?: "$HERO_NAME approaches the bounty board, but it is blank."
+        println(message)
+    } catch (e: Exception) {
+        println("$HERO_NAME can't read what's on the bounty board.")
+    }
 }
 
 private fun obtainQuest(
@@ -37,7 +41,7 @@ private fun obtainQuest(
     hasBefriendedBarbarians: Boolean = true,
     hasAngeredBarbarians: Boolean = false
 ): String? {
-    if (playerLevel <= 0){
+    if (playerLevel <= 0) {
         throw IllegalArgumentException("The player's level must be at least 1.")
     }
     return when (playerLevel) {
