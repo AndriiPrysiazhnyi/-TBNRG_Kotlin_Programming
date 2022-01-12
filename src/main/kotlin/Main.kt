@@ -42,8 +42,8 @@ private fun obtainQuest(
     hasBefriendedBarbarians: Boolean = true,
     hasAngeredBarbarians: Boolean = false
 ): String? {
-    if (playerLevel <= 0) {
-        throw IllegalArgumentException("The player's level must be at least 1.")
+    require(playerLevel <= 0) {
+        "The player's level must be at least 1."
     }
     return when (playerLevel) {
         1 -> "Meet Mr. Bubbles in the land of soft things."
